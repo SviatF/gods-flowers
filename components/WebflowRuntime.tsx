@@ -7,7 +7,7 @@ const SITE_ID = "6883334a2c2e5c0d3344a5e4";
 export function WebflowRuntime() {
   return (
     <>
-      <Script id="webflow-document-classes" strategy="beforeInteractive">
+      <Script id="webflow-document-classes" strategy="afterInteractive">
         {`(function(w,d){var n=d.documentElement,t=' w-mod-';n.className+=t+'js';if('ontouchstart' in w||(w.DocumentTouch&&d instanceof DocumentTouch)){n.className+=t+'touch';}})(window,document);`}
       </Script>
       <Script
