@@ -1,0 +1,38 @@
+@media screen and (max-width: 479px){.menu-button-close{
+    background-position: 53%;
+    background-size: 4.2vw 4.2vw;
+    border-width: .4vw;
+    width: 13.3333vw;
+    height: 13.3333vw;
+  }.navbar-logo{
+    width: 13.3333vw;
+    height: 13.3333vw;
+  }.navbar-logo.dark-logo{
+    background-image: url("https://cdn.prod.website-files.com/6883334a2c2e5c0d3344a5e4/6889cd6349050b0bd9f43d7d_Vector.svg");
+  }.nav-menu-inner-wrapper{
+    padding: 9.33333vw 0;
+  }.sale-wrpr{
+    z-index: 10;
+    display: none;
+    position: absolute;
+  }.sale-wrpr.mob{
+    padding-top: 0;
+    padding-bottom: 0;
+    display: block;
+    top: 31vw;
+  }.sale-line{
+    padding-top: 2.56vw;
+    padding-bottom: 2vw;
+    font-size: 3.33vw;
+  }}
+#w-node-_4515a954-0458-b55b-cfc6-c10b84d6cb73-c97e4d20, #w-node-b24c589d-6668-e0dd-cfe3-a101427336b8-c97e4d20, #w-node-_542f2ae1-0d07-a942-1271-16f259ecd418-c97e4d20, #w-node-_9564a96d-24f9-763d-4e48-216296cbc8eb-c97e4d20, #w-node-d6e4e7e8-2f2d-026d-4baa-f788cc1f78dd-c97e4d20, #w-node-cdbdc8d0-0322-d2f7-f6ff-6867e819f9b0-c97e4d20, #w-node-_4515a954-0458-b55b-cfc6-c10b84d6cb73-6262fa01, #w-node-b24c589d-6668-e0dd-cfe3-a101427336b8-6262fa01, #w-node-_542f2ae1-0d07-a942-1271-16f259ecd418-6262fa01, #w-node-_9564a96d-24f9-763d-4e48-216296cbc8eb-6262fa01{
+  grid-area: span 1 / span 1 / span 1 / span 1;
+}
+#w-node-dc9e5745-b55e-cfc5-b647-672b48d48546-6262fa01{
+  grid-area: 1 / 2 / 2 / 3;
+}
+@media screen and (max-width: 479px){#w-node-_6a76bd6a-d63c-7240-9db5-05c5de1455e1-8f13d339{
+    order: 0;
+  }}
+.w-icon-slider-left::before{content:"‹"}
+.w-icon-slider-right::before{content:"›"}
