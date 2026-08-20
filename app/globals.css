@@ -1,8 +1,37 @@
-html, body {
-  margin: 0;
-  padding: 0;
+html, body { margin: 0; min-height: 100%; }
+body { overflow-x: hidden; }
+
+/* Local interaction layer. No Webflow runtime or jQuery. */
+.nav-menu {
+  transition: width 360ms cubic-bezier(.2,.8,.2,1);
+}
+.nav-menu.gf-open {
+  width: min(55vw, 1056px) !important;
+}
+.navbar-bg-blur.gf-open {
+  display: block !important;
+}
+.menu-button,
+.menu-button-close,
+.w-slider-arrow-left,
+.w-slider-arrow-right {
+  cursor: pointer;
+}
+.gf-slider-mask {
+  display: flex !important;
+  align-items: stretch;
+  will-change: transform;
+  transition-property: transform;
+  transition-timing-function: ease;
+}
+.gf-slider-slide {
+  flex: 0 0 100%;
+  width: 100%;
+}
+.w-slider-dot.gf-active {
+  background-color: #222;
 }
 
-.next-ssr-shell {
-  display: contents;
+@media (max-width: 767px) {
+  .nav-menu.gf-open { width: 100vw !important; }
 }
