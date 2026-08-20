@@ -7,40 +7,64 @@ html, body {
   display: contents;
 }
 
-/* Gods Flowers branding: override every legacy Freesia logo slot. */
+/* Gods Flowers branding: legacy Webflow logo slots are kept for layout,
+   but the actual brand is rendered as a real <img> by WebflowRuntime. */
 .navbar-logo,
 .navbar-logo.dark-logo,
 .menu-logo,
 .menu-logo.w--current,
 .footer-logo {
-  background-image: url("/assets/gods-flowers-logo.png") !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  background-size: contain !important;
+  background: none !important;
+  background-image: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: visible !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.gods-brand-image {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+  transform: none !important;
+  pointer-events: none;
 }
 
 .navbar-logo,
 .navbar-logo.dark-logo {
-  width: 5vw !important;
-  height: 4.55vw !important;
-  min-width: 5vw;
-  flex: 0 0 auto;
+  width: 5.2vw !important;
+  height: 4.7vw !important;
+  min-width: 5.2vw !important;
+  min-height: 4.7vw !important;
+  flex: 0 0 5.2vw !important;
 }
 
 .menu-logo,
 .menu-logo.w--current {
-  width: 8vw !important;
-  height: 7.3vw !important;
-  flex: 0 0 auto;
+  width: 9vw !important;
+  height: 8.15vw !important;
+  min-width: 9vw !important;
+  min-height: 8.15vw !important;
+  flex: 0 0 9vw !important;
 }
 
 .footer-logo {
   width: 15vw !important;
-  height: 13.66vw !important;
+  height: 13.6vw !important;
+  min-width: 15vw !important;
+  min-height: 13.6vw !important;
 }
 
-/* The exported Webflow footer contains a second legacy logo <img>. Hide it
-   so only the Gods Flowers asset is visible. */
 .footer-logo .image-hero {
   display: none !important;
 }
@@ -48,20 +72,26 @@ html, body {
 @media screen and (max-width: 479px) {
   .navbar-logo,
   .navbar-logo.dark-logo {
-    width: 13.3333vw !important;
-    height: 12.14vw !important;
-    min-width: 13.3333vw;
+    width: 14vw !important;
+    height: 12.7vw !important;
+    min-width: 14vw !important;
+    min-height: 12.7vw !important;
+    flex-basis: 14vw !important;
   }
 
   .menu-logo,
   .menu-logo.w--current {
-    width: 18vw !important;
-    height: 16.4vw !important;
+    width: 20vw !important;
+    height: 18.1vw !important;
+    min-width: 20vw !important;
+    min-height: 18.1vw !important;
   }
 
   .footer-logo {
-    width: 38vw !important;
-    height: 34.6vw !important;
+    width: 40vw !important;
+    height: 36.3vw !important;
+    min-width: 40vw !important;
+    min-height: 36.3vw !important;
   }
 }
 
