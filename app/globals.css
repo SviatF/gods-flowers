@@ -136,3 +136,9 @@ html, body {
     z-index: 4;
   }
 }
+
+/* Hero: only replace the source image. Keep all original Webflow sizing,
+   positioning and responsive behavior unchanged. */
+.div-block.online {
+  background-image: url("/hero-main.png?v=1") !important;
+}
