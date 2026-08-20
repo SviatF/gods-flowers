@@ -1,10 +1,49 @@
 "use client";
 
+import { useEffect } from "react";
 import Script from "next/script";
 
 const SITE_ID = "6883334a2c2e5c0d3344a5e4";
+const BRAND_LOGO = "/assets/gods-flowers-logo.png";
 
 export function WebflowRuntime() {
+  useEffect(() => {
+    const selectors = [".navbar-logo", ".menu-logo", ".footer-logo"];
+
+    const applyBranding = () => {
+      document.querySelectorAll<HTMLElement>(selectors.join(",")).forEach((slot) => {
+        slot.style.setProperty("background-image", "none", "important");
+        slot.style.setProperty("background", "none", "important");
+
+        // Remove the exported Freesia logo image from the old footer/logo slots.
+        slot.querySelectorAll("img:not(.gods-brand-image)").forEach((image) => image.remove());
+
+        let logo = slot.querySelector<HTMLImageElement>("img.gods-brand-image");
+        if (!logo) {
+          logo = document.createElement("img");
+          logo.className = "gods-brand-image";
+          logo.src = BRAND_LOGO;
+          logo.alt = "God's Flowers";
+          logo.decoding = "async";
+          slot.prepend(logo);
+        }
+      });
+    };
+
+    applyBranding();
+
+    // Webflow can mutate logo elements after hydration. Re-apply the brand if it does.
+    const observer = new MutationObserver(() => applyBranding());
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    const timer = window.setTimeout(applyBranding, 1200);
+
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(timer);
+    };
+  }, []);
+
   return (
     <>
       <Script id="webflow-document-classes" strategy="afterInteractive">
