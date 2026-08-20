@@ -1,0 +1,33 @@
+name: Import exact hero image
+
+on:
+  push:
+    paths:
+      - '.github/workflows/import-exact-hero.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  import-hero:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Download exact uploaded PNG
+        run: |
+          curl --fail --location --retry 3 'https://sdmntprukwest.oaiusercontent.com/files/00000000-c4f4-8243-a9aa-62785bb2700d/raw?se=2026-08-20T15%3A37%3A02Z&sp=r&sv=2026-02-06&sr=b&scid=2f89fb25-3948-5d07-931a-a08c1d753ffb&skoid=5bfb38a5-43fb-4c63-80a1-6ae1e97e2e16&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-20T06%3A11%3A56Z&ske=2026-08-21T06%3A11%3A56Z&sks=b&skv=2026-02-06&sig=k/VWmheEpLz85iFqaxdciUAdcH%2B05Mr%2BrbEQlOeFObw%3D' --output public/hero-main.png
+
+      - name: Verify byte-for-byte identity
+        run: echo 'ee440b447d11b3f8f30adbbbd55f2899671cdd1d3cf54bccef1bb11beea5ef11  public/hero-main.png' | sha256sum -c -
+
+      - name: Commit exact hero asset
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public/hero-main.png
+          git commit -m 'Add exact uploaded hero image without conversion'
+          git push origin HEAD:main
