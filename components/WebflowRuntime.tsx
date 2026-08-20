@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import Script from "next/script";
 
 const SITE_ID = "6883334a2c2e5c0d3344a5e4";
-const BRAND_LOGO = "/assets/gods-flowers-logo.png";
+const BRAND_LOGO = "/gods-flowers-logo.png?v=2";
 
 export function WebflowRuntime() {
   useEffect(() => {
@@ -22,10 +22,14 @@ export function WebflowRuntime() {
         if (!logo) {
           logo = document.createElement("img");
           logo.className = "gods-brand-image";
-          logo.src = BRAND_LOGO;
           logo.alt = "God's Flowers";
           logo.decoding = "async";
           slot.prepend(logo);
+        }
+
+        // Always reset src so old cached /assets paths cannot survive hydration.
+        if (logo.getAttribute("src") !== BRAND_LOGO) {
+          logo.setAttribute("src", BRAND_LOGO);
         }
       });
     };
