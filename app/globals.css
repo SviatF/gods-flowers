@@ -7,6 +7,64 @@ html, body {
   display: contents;
 }
 
+/* Gods Flowers branding: override every legacy Freesia logo slot. */
+.navbar-logo,
+.navbar-logo.dark-logo,
+.menu-logo,
+.menu-logo.w--current,
+.footer-logo {
+  background-image: url("/assets/gods-flowers-logo.png") !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
+}
+
+.navbar-logo,
+.navbar-logo.dark-logo {
+  width: 5vw !important;
+  height: 4.55vw !important;
+  min-width: 5vw;
+  flex: 0 0 auto;
+}
+
+.menu-logo,
+.menu-logo.w--current {
+  width: 8vw !important;
+  height: 7.3vw !important;
+  flex: 0 0 auto;
+}
+
+.footer-logo {
+  width: 15vw !important;
+  height: 13.66vw !important;
+}
+
+/* The exported Webflow footer contains a second legacy logo <img>. Hide it
+   so only the Gods Flowers asset is visible. */
+.footer-logo .image-hero {
+  display: none !important;
+}
+
+@media screen and (max-width: 479px) {
+  .navbar-logo,
+  .navbar-logo.dark-logo {
+    width: 13.3333vw !important;
+    height: 12.14vw !important;
+    min-width: 13.3333vw;
+  }
+
+  .menu-logo,
+  .menu-logo.w--current {
+    width: 18vw !important;
+    height: 16.4vw !important;
+  }
+
+  .footer-logo {
+    width: 38vw !important;
+    height: 34.6vw !important;
+  }
+}
+
 /* Consultation section: keep the original soft background, but force the
    foreground model to render as a crisp layer above it. Webflow interactions
    can otherwise leave this image faded/blurred after hydration. */
