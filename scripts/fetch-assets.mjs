@@ -7,12 +7,20 @@ const SITE_BASE = `https://cdn.prod.website-files.com/${SITE_ID}/`;
 const CSS_URL = `${SITE_BASE}css/D76lzFt38IJM.css`;
 const COMPLETE = "public/assets/.complete";
 
+const BROWSER_HEADERS = {
+  "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+  Accept: "*/*",
+  "Accept-Language": "uk-UA,uk;q=0.9,en-US;q=0.8,en;q=0.7",
+  Referer: "https://www.freesiaacademy.com/online",
+  Origin: "https://www.freesiaacademy.com",
+};
+
 async function exists(path) {
   try { await access(path); return true; } catch { return false; }
 }
 
 async function fetchBytes(url) {
-  const response = await fetch(url, { redirect: "follow" });
+  const response = await fetch(url, { redirect: "follow", headers: BROWSER_HEADERS });
   if (!response.ok) throw new Error(`Failed ${response.status}: ${url}`);
   return Buffer.from(await response.arrayBuffer());
 }
