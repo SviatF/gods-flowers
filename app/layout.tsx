@@ -22,8 +22,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="uk" suppressHydrationWarning>
       <head>
-        <link rel="icon" type="image/png" href="/assets/gods-flowers-logo.png" />
-        <link rel="apple-touch-icon" href="/assets/gods-flowers-logo.png" />
+        <link rel="icon" type="image/png" href="/gods-flowers-logo.png?v=2" />
+        <link rel="apple-touch-icon" href="/gods-flowers-logo.png?v=2" />
       </head>
       <body className="f3efed">{children}</body>
     </html>
