@@ -2,9 +2,10 @@
 
 import { useEffect } from "react";
 import Script from "next/script";
+import brandLogo from "@/public/gods-flowers-logo.png";
 
 const SITE_ID = "6883334a2c2e5c0d3344a5e4";
-const BRAND_LOGO = "/gods-flowers-logo.png";
+const BRAND_LOGO = brandLogo.src;
 
 export function WebflowRuntime() {
   useEffect(() => {
@@ -27,7 +28,7 @@ export function WebflowRuntime() {
           slot.prepend(logo);
         }
 
-        // Always use the repository-local logo asset instead of external/broken URLs.
+        // Use the Next.js-bundled repository asset so the logo cannot break because of a root URL/path issue.
         if (logo.getAttribute("src") !== BRAND_LOGO) {
           logo.setAttribute("src", BRAND_LOGO);
         }
